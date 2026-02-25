@@ -1,0 +1,166 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: var(--color-primary);
+  --color-secondary: var(--color-secondary);
+  --color-accent: var(--color-accent);
+  --color-dark: var(--color-bg);
+  --color-darker: var(--color-bg-darker);
+  --color-card: var(--color-card);
+
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+:root {
+  /* Charcoal & Neon Theme - Eye Strain Reduction */
+  --color-primary: #00E5FF;
+  /* Neon Cyan */
+  --color-secondary: #D946EF;
+  /* Neon Fuchsia */
+  --color-accent: #14F195;
+  /* Neon Mint */
+
+  --color-bg: #18181B;
+  /* Zinc 900 (Charcoal) */
+  --color-bg-darker: #121212;
+  /* Soft Black */
+  --color-card: #27272A;
+  /* Zinc 800 (Lighter Charcoal) */
+
+  --color-text: #F4F4F5;
+  /* Zinc 100 (Off-white for readability) */
+  --color-text-muted: #A1A1AA;
+  /* Zinc 400 */
+  --color-border: #3F3F46;
+  /* Zinc 700 */
+
+  /* Deep, matte gradients with neon glow edges */
+  --gradient-primary: linear-gradient(135deg, #00E5FF 0%, #D946EF 100%);
+  --gradient-card: linear-gradient(180deg, rgba(39, 39, 42, 0.9) 0%, rgba(39, 39, 42, 0.6) 100%);
+
+  background-color: var(--color-bg-darker);
+  color: var(--color-text);
+}
+
+:root[data-theme="light"] {
+  /* High Contrast Light (Clean & Crisp) */
+  --color-primary: #0284C7;
+  /* Sky 600 */
+  --color-secondary: #C026D3;
+  /* Fuchsia 600 */
+  --color-accent: #16A34A;
+  /* Green 600 */
+
+  --color-bg: #F8FAFC;
+  /* Slate 50 */
+  --color-bg-darker: #FFFFFF;
+  --color-card: #FFFFFF;
+
+  --color-text: #18181B;
+  /* Zinc 900 */
+  --color-text-muted: #52525B;
+  /* Zinc 600 */
+  --color-border: #E2E8F0;
+
+  --gradient-primary: linear-gradient(135deg, #0284C7 0%, #C026D3 100%);
+  --gradient-card: linear-gradient(180deg, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0.8) 100%);
+}
+
+/* Glassmorphism Utility */
+.glass-panel {
+  background: var(--gradient-card);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-border);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-text-muted);
+}
+
+/* Mesh Gradient Animation */
+@keyframes mesh {
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+
+  33% {
+    transform: translate(30px, -50px) rotate(10deg);
+  }
+
+  66% {
+    transform: translate(-20px, 20px) rotate(-5deg);
+  }
+
+  100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+}
+
+.mesh-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+  opacity: 0.4;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.mesh-blob {
+  position: absolute;
+  filter: blur(80px);
+  opacity: 0.6;
+  border-radius: 50%;
+  animation: mesh 20s infinite ease-in-out;
+}
+
+.mesh-blob-1 {
+  top: -10%;
+  left: -10%;
+  width: 50vw;
+  height: 50vw;
+  background: var(--color-primary);
+  animation-delay: 0s;
+}
+
+.mesh-blob-2 {
+  bottom: -10%;
+  right: -10%;
+  width: 60vw;
+  height: 60vw;
+  background: var(--color-secondary);
+  animation-delay: -5s;
+}
+
+.mesh-blob-3 {
+  top: 40%;
+  left: 40%;
+  width: 40vw;
+  height: 40vw;
+  background: #8b5cf6;
+  animation-delay: -10s;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+}
