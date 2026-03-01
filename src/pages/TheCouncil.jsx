@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Users, Send, MessageSquare, Loader2, Gavel, User, AlertCircle, TrendingUp, Shield, BarChart3 } from 'lucide-react';
 import axios from 'axios';
+import API_BASE_URL from '../config';
 
 const TheCouncil = () => {
     const [topic, setTopic] = useState('');
@@ -38,7 +39,7 @@ const TheCouncil = () => {
         setDiscussion(null);
 
         try {
-            const response = await axios.post(`${import.meta.env.VITE_API_URL}/api/ai/council`, {
+            const response = await axios.post(`${API_BASE_URL}/api/ai/council`, {
                 topic,
                 personas: selectedPersonas
             });

@@ -2,6 +2,7 @@ import { useState } from 'react';
 import axios from 'axios';
 import { Send, Copy, Check, Loader2, Sparkles } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import API_BASE_URL from '../config';
 
 const CreativeAssistant = () => {
     const [prompt, setPrompt] = useState('');
@@ -25,7 +26,7 @@ const CreativeAssistant = () => {
         setError('');
 
         try {
-            const response = await axios.post(`${import.meta.env.VITE_API_URL}/api/ai/generate`, {
+            const response = await axios.post(`${API_BASE_URL}/api/ai/generate`, {
                 prompt,
                 systemRole: personas[persona]
             });

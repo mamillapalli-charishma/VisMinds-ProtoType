@@ -2,6 +2,7 @@ import { useState } from 'react';
 import axios from 'axios';
 import { Calendar, Plus, RefreshCw, Loader2, Sparkles, Trash2, Edit2, Eye, X, CheckSquare } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import API_BASE_URL from '../config';
 
 const ContentStrategist = () => {
     const [strategy, setStrategy] = useState([
@@ -32,7 +33,7 @@ const ContentStrategist = () => {
         setLoading(true);
         setShowGenModal(false);
         try {
-            const response = await axios.post(`${import.meta.env.VITE_API_URL}/api/ai/generate`, {
+            const response = await axios.post(`${API_BASE_URL}/api/ai/generate`, {
                 preferences: genPrefs
             });
 
