@@ -1,5 +1,14 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Layout from './components/Layout';
+import Dashboard from './pages/Dashboard';
+import CreativeAssistant from './pages/CreativeAssistant';
+import ContentStrategist from './pages/ContentStrategist';
+import Insights from './pages/Insights';
+import TheCouncil from './pages/TheCouncil';
+import Settings from './pages/Settings';
+import { SettingsProvider } from './context/SettingsContext';
+import { ThemeProvider } from './context/ThemeContext';
+
 function App() {
 
   console.log("ENV KEY:", import.meta.env.VITE_GOOGLE_API_KEY);
@@ -23,3 +32,5 @@ function App() {
     </SettingsProvider>
   );
 }
+
+export default App;
