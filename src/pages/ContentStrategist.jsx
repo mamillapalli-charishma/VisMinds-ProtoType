@@ -32,7 +32,7 @@ const ContentStrategist = () => {
         setLoading(true);
         setShowGenModal(false);
         try {
-            const response = await axios.post('http://localhost:5000/api/ai/generate', {
+            const response = await axios.post(`${import.meta.env.VITE_API_URL}/api/ai/generate`, {
                 preferences: genPrefs
             });
 
@@ -127,8 +127,8 @@ const ContentStrategist = () => {
                                                 {item.date}
                                             </span>
                                             <div className={`px-2 py-1 rounded text-xs font-bold ${item.platform === 'LinkedIn' ? 'bg-blue-500/10 text-blue-400' :
-                                                    item.platform === 'Twitter' ? 'bg-sky-500/10 text-sky-400' :
-                                                        'bg-orange-500/10 text-orange-400'
+                                                item.platform === 'Twitter' ? 'bg-sky-500/10 text-sky-400' :
+                                                    'bg-orange-500/10 text-orange-400'
                                                 }`}>
                                                 {item.platform}
                                             </div>
@@ -141,8 +141,8 @@ const ContentStrategist = () => {
 
                                     <div className="flex items-center justify-between mt-4 pt-4 border-t border-white/5">
                                         <span className={`text-xs px-2 py-1 rounded border ${item.status === 'Planned' ? 'border-emerald-500/30 text-emerald-400' :
-                                                item.status === 'Draft' ? 'border-yellow-500/30 text-yellow-400' :
-                                                    'border-slate-600 text-slate-400'
+                                            item.status === 'Draft' ? 'border-yellow-500/30 text-yellow-400' :
+                                                'border-slate-600 text-slate-400'
                                             }`}>
                                             {item.status}
                                         </span>

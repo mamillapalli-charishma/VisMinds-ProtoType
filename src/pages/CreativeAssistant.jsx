@@ -25,7 +25,7 @@ const CreativeAssistant = () => {
         setError('');
 
         try {
-            const response = await axios.post('http://localhost:5000/api/ai/generate', {
+            const response = await axios.post(`${import.meta.env.VITE_API_URL}/api/ai/generate`, {
                 prompt,
                 systemRole: personas[persona]
             });
@@ -72,8 +72,8 @@ const CreativeAssistant = () => {
                                 key={p}
                                 onClick={() => setPersona(p)}
                                 className={`px-4 py-2 rounded-lg text-sm font-medium transition-all whitespace-nowrap ${persona === p
-                                        ? 'bg-primary text-white shadow-lg shadow-primary/20'
-                                        : 'text-[color:var(--color-text-muted)] hover:bg-slate-800 hover:text-[color:var(--color-text)]'
+                                    ? 'bg-primary text-white shadow-lg shadow-primary/20'
+                                    : 'text-[color:var(--color-text-muted)] hover:bg-slate-800 hover:text-[color:var(--color-text)]'
                                     }`}
                             >
                                 {p}

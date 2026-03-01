@@ -38,7 +38,7 @@ const TheCouncil = () => {
         setDiscussion(null);
 
         try {
-            const response = await axios.post('http://localhost:5000/api/ai/council', {
+            const response = await axios.post(`${import.meta.env.VITE_API_URL}/api/ai/council`, {
                 topic,
                 personas: selectedPersonas
             });
